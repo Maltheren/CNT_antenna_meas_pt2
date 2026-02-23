@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from mpl_toolkits.mplot3d import Axes3D  # noqa
 
+
+
+
 def read_and_concat(folder, pattern="*.csv"):
     """
     Read all CSV files in a folder and concatenate them into one DataFrame.
@@ -27,7 +30,7 @@ def read_and_concat(folder, pattern="*.csv"):
         df = pd.read_csv(file)
         
         # Drop unnamed index column if present
-        df = df.loc[:, ~df.columns.str.contains("^Unnamed")]
+        df = df.loc[:, ~df.columns.str.contains("Unnamed")]
         
         # Optional: keep track of source file
         df["source_file"] = file.name
